@@ -37,11 +37,11 @@
   <% end %>
 
 
-  <p><%= link_to "See all our products", products_path %></p>
+  <p><%= link_to "See all our products", products_path, class: "btn btn-primary btn-lg"  %></p>
 
 
   <% if user_signed_in? %>
-    <p><%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+    <p><%= link_to "Logout", destroy_user_session_path, class: "btn btn-primary btn-lg" , :method => :delete %>
   <% else %>
     <p>You are not signed in.</p>
     <%= button_to "Sign up!", new_user_registration_path, class: "btn btn-primary btn-lg" %>
