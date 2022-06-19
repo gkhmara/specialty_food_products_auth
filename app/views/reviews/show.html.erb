@@ -3,9 +3,9 @@
 <h3>Content: <%= @review.content_body %></h3>
 <h3>Rating: <%= @review.rating %></h3>
 
-<p><%= link_to "Edit review", edit_product_review_path(@product, @review) %></p>
-<p><%= link_to "Delete review", product_review_path(@product, @review),
+<p><%= link_to "Edit review", edit_product_review_path(@product, @review), class: "btn btn-primary btn-lg" %></p>
+<p><%= link_to "Delete review", product_review_path(@product, @review), class: "btn btn-primary btn-lg" ,
                         :data => {:confirm => "Are you sure?",
                                       :method => "delete"} %></p>
 
-<p><%= link_to "Return to product", product_path(@product) %></p>
+<p><%= link_to "Return to product", product_path(@product), class: "btn btn-primary btn-lg" %></p>
