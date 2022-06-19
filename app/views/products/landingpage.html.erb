@@ -1,0 +1,49 @@
+<h1>Welcome to our store</h1>
+
+<% if @products.any? %>
+  
+  <h4>Three Most Recent Products</h4>
+  <ul>
+    <% @products.three_most_recent.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </ul>
+
+  <h4>Most Reviewed Product</h4>
+  <% if @products.most_reviews.any? %>
+    <ul>
+      <% @products.most_reviews.each do |product| %>
+        <li><%= link_to product.name, product_path(product) %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no reviewed products<p>
+  <% end %>
+
+  <h4>Products Made in USA</h4>
+  <% if @products.usa.any? %>
+    <ul>
+      <% @products.usa.each do |product| %>
+        <li><%= link_to product.name, product_path(product) %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no products from USA yet</p>
+  <% end %>
+
+<% else %>
+      <p>There are no products yet.</p>
+<% end %>
+
+
+<p><%= link_to "See all our products", products_path %></p>
+
+
+<% if user_signed_in? %>
+  <p><%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+<% else %>
+  <p>You are not signed in.</p>
+  <%= link_to "Sign up!", new_user_registration_path %>
+  <br/>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>

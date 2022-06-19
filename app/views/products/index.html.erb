@@ -1,0 +1,17 @@
+<h1>Products</h1>
+
+<% if @products.any? %>
+  <h3>All Products<h3>
+  <ul>
+    <% @products.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </ul>
+  
+<% end %>
+
+
+    
+
+<p><%= link_to "Create new product", new_product_path %></p>
+<p><%= link_to "Return to our home page", "/" %></p>
