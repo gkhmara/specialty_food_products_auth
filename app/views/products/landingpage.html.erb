@@ -6,26 +6,28 @@
     <h4>Three Most Recent Products</h4>
     <ul>
       <% @products.three_most_recent.each do |product| %>
-        <li><%= link_to product.name, product_path(product) %></li>
+        <h3><li><%= link_to product.name, product_path(product) %></li></h3>
       <% end %>
     </ul>
-
+    
+    <br>
     <h4>Most Reviewed Product</h4>
     <% if @products.most_reviews.any? %>
       <ul>
         <% @products.most_reviews.each do |product| %>
-          <li><%= link_to product.name, product_path(product) %></li>
+          <h3><li><%= link_to product.name, product_path(product) %></li></h3>
         <% end %>
       </ul>
     <% else %>
       <p>There are no reviewed products<p>
     <% end %>
-
+    
+    <br>
     <h4>Products Made in USA</h4>
     <% if @products.usa.any? %>
       <ul>
         <% @products.usa.each do |product| %>
-          <li><%= link_to product.name, product_path(product) %></li>
+          <h3><li><%= link_to product.name, product_path(product) %></li></h3>
         <% end %>
       </ul>
     <% else %>
@@ -36,7 +38,7 @@
         <p>There are no products yet.</p>
   <% end %>
 
-
+  <br>        
   <p><%= link_to "See all our products", products_path, class: "btn btn-primary btn-lg"  %></p>
 
 
