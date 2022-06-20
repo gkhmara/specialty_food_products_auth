@@ -2,7 +2,12 @@ require 'rails_helper'
 
 describe "edits a product review" do
   before :each do
-    Product.destroy_all
+    visit new_user_registration_path
+    fill_in 'Email', with: 'fakename@fake.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    click_on 'Sign up'
+    User.find_by(email: "fakename@fake.com").update!(admin: true)
   end
 
   it "deletes a review" do
@@ -21,7 +26,7 @@ describe "edits a product review" do
     fill_in 'Author', :with => 'Michael'
     fill_in 'Content body', :with => 'I do not like this!'
     fill_in 'Rating', :with => 1
-    click_on 'Update Review'
+    click_on 'Submit'
     expect(page).to have_content 'Michael'
   end
 
@@ -33,7 +38,7 @@ describe "edits a product review" do
     fill_in 'Author', :with => 'Michael'
     fill_in 'Content body', :with => ''
     fill_in 'Rating', :with => 1
-    click_on 'Update Review'
+    click_on 'Submit'
     expect(page).to have_content "Content body can't be blank"
   end
 
