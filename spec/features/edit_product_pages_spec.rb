@@ -2,7 +2,13 @@ require 'rails_helper'
 
 describe "edits a product on the page" do
   before :each do
-    Product.destroy_all
+    visit new_user_registration_path
+    fill_in 'Email', with: 'fakename@fake.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    click_on 'Sign up'
+    User.find_by(email: "fakename@fake.com").update!(admin: true)
+    # Product.destroy_all
   end
   
   it "updates a new product" do
@@ -14,7 +20,7 @@ describe "edits a product on the page" do
     fill_in 'Name', :with => 'Old Sock'
     fill_in 'Cost', :with => '5'
     fill_in 'Country of origin', :with => 'USA'
-    click_on 'Update Product'
+    click_on 'Submit'
     expect(page).to have_content 'Product successfully updated!'
     expect(page).to have_content 'Old Sock'
   end
@@ -30,7 +36,7 @@ describe "edits a product on the page" do
 
   it "shows an error when not entered incorrectly" do
     visit new_product_path
-    click_on 'Create Product'
+    click_on 'Submit'
     expect(page).to have_content "Name can't be blank"
   end
 
