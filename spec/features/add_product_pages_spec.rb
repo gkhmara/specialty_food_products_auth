@@ -2,11 +2,12 @@ require 'rails_helper'
 
 describe "the add a product process" do
   before(:each) do
-    User.create({email: 'fakename@fake.com', password: 'password', admin: true})
-    visit new_user_session_path
+    visit new_user_registration_path
     fill_in 'Email', with: 'fakename@fake.com'
     fill_in 'Password', with: 'password'
-    click_on 'Log in'
+    fill_in 'Password confirmation', with: 'password'
+    click_on 'Sign up'
+    User.find_by(email: "fakename@fake.com").update!(admin: true)
   end
   
   it "adds a new product" do
@@ -15,14 +16,14 @@ describe "the add a product process" do
     fill_in 'Name', :with => 'Goat Cheese'
     fill_in 'Cost', :with => 5
     fill_in 'Country of origin', :with => 'USA'
-    click_on 'Create Product'
+    click_on 'Submit'
     expect(page).to have_content 'Product successfully added!'
     expect(page).to have_content 'Goat Cheese'
   end
 
   it "gives an error when no name is entered" do
     visit new_product_path
-    click_on 'Create Product'
+    click_on 'Submit'
     expect(page).to have_content "Name can't be blank"
   end
 
