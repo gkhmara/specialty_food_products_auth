@@ -31,7 +31,7 @@ This script allows a user to enter in product and add a review to those products
 * Open a web browser and navigate to *localhost:3000*
 * Click the *Sign up!* button
 * Create a user account<br>- Non-admin users are restricted to only adding reviews
-* To make a user a admin: open the terminal or console and type *User.first.update(admin:true)<br>- Admins have access to all portions of the site. They can create and delete products and reviews
+* To make a user a admin: open the terminal or console and type *User.first.update(admin:true)*<br>- Admins have access to all portions of the site. They can create and delete products and reviews
 
 ## Known Bugs
 
