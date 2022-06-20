@@ -29,6 +29,9 @@ This script allows a user to enter in product and add a review to those products
 * Type the command *postgres* to start server
 * Create a new tab in the terminal or console and type the command *rails s*
 * Open a web browser and navigate to *localhost:3000*
+* Click the *Sign up!* button
+* Create a user account<br>- Non-admin users are restricted to only adding reviews
+* To make a user a admin: open the terminal or console and type *User.first.update(admin:true)<br>- Admins have access to all portions of the site. They can create and delete products and reviews
 
 ## Known Bugs
 
@@ -38,7 +41,7 @@ This script allows a user to enter in product and add a review to those products
 
 MIT License
 
-Copyright (c) 06-05-22 Greg Khmara
+Copyright (c) 06-19-22 Greg Khmara
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
