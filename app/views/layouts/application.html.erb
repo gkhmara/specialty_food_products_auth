@@ -10,9 +10,10 @@
   </head>
 
   <body>
-
+    <%= render "layouts/navbar" %>
     <%= flash[:alert] %>
     <%= flash[:notice] %>
+    
     <div class="jumbotron">
       <%= yield %>
     </div>  
