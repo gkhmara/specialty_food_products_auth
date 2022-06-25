@@ -36,3 +36,18 @@ a:hover {
 li {
   list-style-type: none;
 }
+
+//NAV BAR
+nav {
+  float: center;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 25px;
+}
